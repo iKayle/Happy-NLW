@@ -66,18 +66,30 @@ function deleteField(event) {
 }
 
 // select yes or no
-    function toggleSelect(event){
-        // retirar a class .active (dos botoes)
-        document.querySelectorAll('.button-select button')
-        .forEach((button) => button.classList.remove('active'))
+function toggleSelect(event) {
+  // retirar a class .active (dos botoes)
+  document
+    .querySelectorAll(".button-select button")
+    .forEach((button) => button.classList.remove("active"));
 
-        // pegar botao clicado --------- colocar a class.active no botao clicado
-        const button = event.currentTarget
-        button.classList.add('active')
-        
-        // atualizar input hidden com valor selecionado
-       const input = document.querySelector('[name="open_on_weekends"]')
+  // pegar botao clicado --------- colocar a class.active no botao clicado
+  const button = event.currentTarget;
+  button.classList.add("active");
 
-       //verificar se sim ou nao
-        input.value = button.dataset.value
-    }
+  // atualizar input hidden com valor selecionado
+  const input = document.querySelector('[name="open_on_weekends"]');
+
+  //verificar se sim ou nao
+  input.value = button.dataset.value;
+}
+
+// desafio: apos verificação tudo estiver preenchido envia relatorio
+
+function validate(event) {
+  // validar se lat e lng estão preenchidos
+  const needsLatAndLng = true;
+  if (needsLatAndLng) {
+    event.preventDefalt();
+    alert("Selecione um ponto no mapa");
+  }
+}
